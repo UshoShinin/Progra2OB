@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3AE248B7-2FE1-45F7-90EB-CA2F747831C5}</ProjectGuid>
+    <ProjectGuid>{DF9B162B-312A-4D81-855D-6E87C2C3FFDF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Dominio</RootNamespace>
@@ -41,6 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administradora.cs" />
+    <Compile Include="CantidadProducto.cs" />
+    <Compile Include="Cliente.cs" />
+    <Compile Include="ClienteComun.cs" />
+    <Compile Include="ClienteEmpresa.cs" />
+    <Compile Include="Compra.cs" />
+    <Compile Include="Producto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
