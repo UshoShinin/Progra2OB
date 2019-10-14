@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    abstract class Cliente
+    public abstract class Cliente
     {
         #region EnumDeclaration
         public enum EnumProcedencia
@@ -17,7 +17,6 @@ namespace Dominio
         #endregion
 
         private List<Compra> Compras;
-
         private string nombre;
         private string contraseña;
         private string email;
@@ -26,7 +25,19 @@ namespace Dominio
         private string direccion;
         private string nombreDeUsuario;
 
-        #region Propertys
+        protected Cliente(List<Compra> compras, string nombre, string contraseña, string email, DateTime fecha, EnumProcedencia procedencia, string direccion, string nombreDeUsuario)
+        {
+            Compras = compras;
+            this.nombre = nombre;
+            this.contraseña = contraseña;
+            this.email = email;
+            this.fecha = fecha;
+            this.procedencia = procedencia;
+            this.direccion = direccion;
+            this.nombreDeUsuario = nombreDeUsuario;
+        }
+
+        #region Properties
         public string Nombre
         {
             get { return nombre; }
@@ -61,37 +72,38 @@ namespace Dominio
             get { return nombreDeUsuario; }
             set { nombreDeUsuario = value; }
         }
-
         #endregion
 
-
+        #region Methods
         public abstract double calcularPorcentaje();
 
-        public static bool NombreValido(string nombre) {
+        public static bool NombreValido(string nombre)
+        {
             return nombre.Length > 0;
         }
 
         public static bool ContraseñaValida(string contraseña)
         {
-            return contraseña.Length>0;
+            return contraseña.Length > 0;
         }
-        public int Antiguedad()
+        public double Antiguedad()
         {
             TimeSpan a = DateTime.Now - this.fecha;
-            return a.Days/364;
+            return a.Days / 365.25;
         }
-        public static bool EmailVelido(string email)
+        public static bool EmailValido(string email)
         {
             return email.Length > 0;
         }
-        public static bool NUsuarioValido   (string NUsuario)
+        public static bool NUsuarioValido(string NUsuario)
         {
             return NUsuario.Length > 0;
         }
         public static bool DireccionValida(string direccion)
         {
             return direccion.Length > 0;
-        }
+        } 
+        #endregion
 
     }
 }

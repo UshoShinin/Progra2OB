@@ -6,23 +6,32 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    class ClienteEmpresa : Cliente
+    public class ClienteEmpresa : Cliente
     {
         private string razonSocial;
         private long rut;
 
+        public ClienteEmpresa(List<Compra> compras, string nombre, string contraseña, string email, DateTime fecha, EnumProcedencia procedencia, string direccion, string nombreDeUsuario, string razonSocial, long rut):
+        base(compras, nombre, contraseña, email, fecha, procedencia, direccion, nombreDeUsuario)
+        {
+            this.razonSocial = razonSocial;
+            this.rut = rut;
+        }
+
+        #region Properties
         public string RazonSocial
         {
             get { return razonSocial; }
             set { razonSocial = value; }
         }
 
-
         public long Rut
         {
             get { return rut; }
             set { rut = value; }
         }
+        #endregion
+
         public override double calcularPorcentaje()
         {
             double des = 0;
@@ -32,7 +41,7 @@ namespace Dominio
             }
 
             return des;
-        }
+        } 
 
     }
 }

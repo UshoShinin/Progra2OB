@@ -6,12 +6,18 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    class CantidadProducto
+    public class CantidadProducto
     {
         private int cantidad;
         private Producto producto;
 
-        #region Propertys
+        public CantidadProducto(int cantidad, Producto producto)
+        {
+            this.cantidad = cantidad;
+            this.producto = producto;
+        }
+
+        #region Properties
         public int Cantidad
         {
             get { return cantidad; }
@@ -24,7 +30,6 @@ namespace Dominio
             set { producto = value; }
         }
         #endregion
-
 
     }
 }

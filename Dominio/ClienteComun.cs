@@ -6,19 +6,20 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    class ClienteComun : Cliente
+    public class ClienteComun : Cliente
     {
         
         private int cedula;
         private int celular;
 
-        public ClienteComun(int cedula, int celular)
+        public ClienteComun(List<Compra> compras, string nombre, string contraseña, string email, DateTime fecha, EnumProcedencia procedencia, string direccion, string nombreDeUsuario, int cedula, int celular) :
+        base(compras, nombre, contraseña, email, fecha, procedencia, direccion, nombreDeUsuario)
         {
             this.cedula = cedula;
             this.celular = celular;
         }
 
-        #region Propertys
+        #region Properties
         public int Cedula
         {
             get { return cedula; }
@@ -33,6 +34,7 @@ namespace Dominio
         }
         #endregion
 
+        #region Methods
         public static bool CedulaValida(int cedula)
         {
             return cedula > 999999;
@@ -40,17 +42,21 @@ namespace Dominio
 
         public static bool CalularValido(int celular)
         {
-            return celular>99999999 && celular < 999999999;
+            return celular > 99999999 && celular < 999999999;
         }
 
-        public override double calcularPorcentaje(){
+        public override double calcularPorcentaje()
+        {
             double des = 0;
-            if (this.Procedencia == EnumProcedencia.INTERIOR) {
+            if (this.Procedencia == EnumProcedencia.INTERIOR)
+            {
                 des += 0.05;
             }
             if (this.Antiguedad() >= 2)
                 des += 0.05;//Esto lo tiene que decir el profesoraso
             return des;
-        }
+        } 
+        #endregion
+
     }
 }

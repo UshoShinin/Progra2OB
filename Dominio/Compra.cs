@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    class Compra
+    public class Compra
     {
-
         private List<CantidadProducto> Productos;
         private Cliente cliente;
+
+        public Compra(List<CantidadProducto> productos, Cliente cliente)
+        {
+            Productos = productos;
+            this.cliente = cliente;
+        }
 
         public Cliente Cliente
         {
@@ -26,6 +31,5 @@ namespace Dominio
             }
             return total;
         }
-
-}
+    }
 }
