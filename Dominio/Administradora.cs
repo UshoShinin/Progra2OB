@@ -25,6 +25,12 @@ namespace Dominio
         private List<Cliente> clientes;
         private List<Compra> compras;
 
+        public List<Producto> Productos
+        {
+            get { return productos; }
+
+        }
+
         private Administradora()
         {
             productos = new List<Producto>();

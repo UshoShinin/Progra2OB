@@ -91,7 +91,11 @@ namespace Dominio
             double precio;
             exito = sPrecio.Length > 0 && Double.TryParse(sPrecio, out precio) && precio > 0;
             return exito;
-        } 
+        }
+        public override string ToString()
+        {
+            return string.Format("Id:{0}, Nombre:{1},  Descipción:{2}, Precio:${3}",id,nombre,descripcion,precio);
+        }
         #endregion
     }
 }
