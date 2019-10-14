@@ -11,7 +11,42 @@ namespace Programa
     {
         static void Main(string[] args)
         {
-            MostrarProductos();
+            int opc = 0;
+
+            while (opc != 5)
+            {
+
+                Console.WriteLine("-----------------------------------------------");
+                Console.WriteLine("                     Menu");
+                Console.WriteLine("1 - Listado de productos por categoria");
+                Console.WriteLine("2 - Clientes registrados a partir de una fecha");
+                Console.WriteLine("3 - Compras realizadas entre dos fechas");
+                Console.WriteLine("4 - Alta de producto");
+                Console.WriteLine("5 - Salir");
+                Console.WriteLine("-----------------------------------------------");
+
+                opc = PedirNumero("Ingrese una opcion entre 1 y 5", "El valor debe ser numérico y estar entre 1 y 5", 1, 5);
+                switch (opc)
+                {
+                    case 1:
+                        MostrarProductos();
+                        break;
+                    case 2:
+                        Console.WriteLine("2");
+                        break;
+                    case 3:
+                        Console.WriteLine("3");
+                        break;
+                    case 4:
+                        Console.WriteLine("4");
+                        break;
+                    case 5:
+                        Console.WriteLine("Acaba de salir del programa");
+                        break;
+                }
+
+                Console.Clear();
+            }
         }
         public static int PedirNumero(string msg, string msgError, int min, int max){
             int opc;
