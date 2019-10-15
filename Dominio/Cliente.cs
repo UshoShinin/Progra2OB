@@ -11,12 +11,12 @@ namespace Dominio
         #region EnumDeclaration
         public enum EnumProcedencia
         {
-            MONTEVIDEO,
+            MONTEVIDEO = 1,
             INTERIOR
         }
         #endregion
 
-        private List<Compra> Compras;
+        private List<Compra> compras;
         private string nombre;
         private string contraseña;
         private string email;
@@ -27,7 +27,7 @@ namespace Dominio
 
         protected Cliente(List<Compra> compras, string nombre, string contraseña, string email, DateTime fecha, EnumProcedencia procedencia, string direccion, string nombreDeUsuario)
         {
-            Compras = compras;
+            this.compras = compras;
             this.nombre = nombre;
             this.contraseña = contraseña;
             this.email = email;
@@ -38,6 +38,12 @@ namespace Dominio
         }
 
         #region Properties
+        public List<Compra> Compras
+        {
+            get { return compras; }
+            set { compras = value; }
+        }
+
         public string Nombre
         {
             get { return nombre; }

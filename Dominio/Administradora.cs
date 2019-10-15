@@ -25,6 +25,26 @@ namespace Dominio
         private List<Cliente> clientes;
         private List<Compra> compras;
 
+        #region Properties
+        public List<Producto> Productos
+        {
+            get { return productos; }
+            set { productos = value; }
+        }
+
+        public List<Cliente> Clientes
+        {
+            get { return clientes; }
+            set { clientes = value; }
+        }
+
+        public List<Compra> Compras
+        {
+            get { return compras; }
+            set { compras = value; }
+        } 
+        #endregion
+
         private Administradora()
         {
             productos = new List<Producto>();
@@ -70,6 +90,13 @@ namespace Dominio
             #endregion
 
             #region Compras
+            DateTime fechaCompra1 = new DateTime(2016, 8, 17);
+            DateTime fechaCompra2 = new DateTime(2017, 11, 17);
+            DateTime fechaCompra3 = new DateTime(2018, 4, 14);
+            DateTime fechaCompra4 = new DateTime(2019, 3, 12);
+            DateTime fechaCompra5 = new DateTime(2019, 4, 13);
+            DateTime fechaCompra6 = new DateTime(2012, 1, 31);
+
             CantidadProducto cp1 = new CantidadProducto(3, p1);
             CantidadProducto cp2 = new CantidadProducto(5, p2);
             CantidadProducto cp3 = new CantidadProducto(1, p3);
@@ -83,12 +110,12 @@ namespace Dominio
             List<CantidadProducto> listaP5 = new List<CantidadProducto> { cp1, cp2 };
             List<CantidadProducto> listaP6 = new List<CantidadProducto> { cp1, cp2, cp3, cp4 };
 
-            Compra cm1 = new Compra(listaP1, cc1);
-            Compra cm2 = new Compra(listaP2, ce2);
-            Compra cm3 = new Compra(listaP3, cc1);
-            Compra cm4 = new Compra(listaP4, cc3);
-            Compra cm5 = new Compra(listaP5, cc3);
-            Compra cm6 = new Compra(listaP6, ce1);
+            Compra cm1 = new Compra(listaP1, cc1, fechaCompra1);
+            Compra cm2 = new Compra(listaP2, ce2, fechaCompra2);
+            Compra cm3 = new Compra(listaP3, cc1, fechaCompra3);
+            Compra cm4 = new Compra(listaP4, cc3, fechaCompra4);
+            Compra cm5 = new Compra(listaP5, cc3, fechaCompra5);
+            Compra cm6 = new Compra(listaP6, ce1, fechaCompra6);
 
             compras.Add(cm1);
             compras.Add(cm2);
@@ -96,6 +123,13 @@ namespace Dominio
             compras.Add(cm4);
             compras.Add(cm5);
             compras.Add(cm6);
+
+            clientes.ElementAt(0).Compras.Add(cm1);
+            clientes.ElementAt(4).Compras.Add(cm2);
+            clientes.ElementAt(0).Compras.Add(cm3);
+            clientes.ElementAt(2).Compras.Add(cm4);
+            clientes.ElementAt(2).Compras.Add(cm5);
+            clientes.ElementAt(3).Compras.Add(cm6);
             #endregion
         }
         #endregion

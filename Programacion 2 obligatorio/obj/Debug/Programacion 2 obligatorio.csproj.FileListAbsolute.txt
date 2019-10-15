@@ -8,6 +8,16 @@ C:\Users\alumnoFI\source\repos\progra2\Progra2OB\Programacion 2 obligatorio\obj\
 C:\Users\alumnoFI\source\repos\progra2\Progra2OB\Programacion 2 obligatorio\obj\Debug\Programacion 2 obligatorio.csproj.CopyComplete
 C:\Users\alumnoFI\source\repos\progra2\Progra2OB\Programacion 2 obligatorio\obj\Debug\Programa.exe
 C:\Users\alumnoFI\source\repos\progra2\Progra2OB\Programacion 2 obligatorio\obj\Debug\Programa.pdb
+C:\Users\Manuel\Documents\GitKraken Repos\Progra2OB\Programacion 2 obligatorio\bin\Debug\Programa.exe.config
+C:\Users\Manuel\Documents\GitKraken Repos\Progra2OB\Programacion 2 obligatorio\bin\Debug\Programa.exe
+C:\Users\Manuel\Documents\GitKraken Repos\Progra2OB\Programacion 2 obligatorio\bin\Debug\Programa.pdb
+C:\Users\Manuel\Documents\GitKraken Repos\Progra2OB\Programacion 2 obligatorio\bin\Debug\Dominio.dll
+C:\Users\Manuel\Documents\GitKraken Repos\Progra2OB\Programacion 2 obligatorio\bin\Debug\Dominio.pdb
+C:\Users\Manuel\Documents\GitKraken Repos\Progra2OB\Programacion 2 obligatorio\obj\Debug\Programacion 2 obligatorio.csprojAssemblyReference.cache
+C:\Users\Manuel\Documents\GitKraken Repos\Progra2OB\Programacion 2 obligatorio\obj\Debug\Programacion 2 obligatorio.csproj.CoreCompileInputs.cache
+C:\Users\Manuel\Documents\GitKraken Repos\Progra2OB\Programacion 2 obligatorio\obj\Debug\Programacion 2 obligatorio.csproj.CopyComplete
+C:\Users\Manuel\Documents\GitKraken Repos\Progra2OB\Programacion 2 obligatorio\obj\Debug\Programa.exe
+C:\Users\Manuel\Documents\GitKraken Repos\Progra2OB\Programacion 2 obligatorio\obj\Debug\Programa.pdb
 C:\Users\Usho\source\repos\Proyecto progra\Progra2OB\Programacion 2 obligatorio\bin\Debug\Programa.exe.config
 C:\Users\Usho\source\repos\Proyecto progra\Progra2OB\Programacion 2 obligatorio\bin\Debug\Programa.exe
 C:\Users\Usho\source\repos\Proyecto progra\Progra2OB\Programacion 2 obligatorio\bin\Debug\Programa.pdb

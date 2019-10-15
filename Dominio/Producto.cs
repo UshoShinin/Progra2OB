@@ -79,22 +79,19 @@ namespace Dominio
         #region Methods
         public static bool NombreValido(string nombre)
         {
-            return nombre.Length == 0;
+            return nombre.Length > 0;
         }
-        public static bool DireccionValida(string direccion)
+        public static bool DescripcionValida(string descripcion)
         {
-            return direccion.Length == 0;
+            return descripcion.Length > 0;
         }
-        public static bool PrecioValido(string sPrecio)
+        public static bool PrecioValido(double precio)
         {
-            bool exito = false;
-            double precio;
-            exito = sPrecio.Length > 0 && Double.TryParse(sPrecio, out precio) && precio > 0;
-            return exito;
+            return precio > 0;
         }
         public override string ToString()
         {
-            return string.Format("Id:{0}, Nombre:{1},  Descipción:{2}, Precio:${3}",id,nombre,descripcion,precio);
+            return string.Format("Id:{0}, Nombre:{1},  Descripción:{2}, Precio:${3}",id,nombre,descripcion,precio);
         }
         #endregion
     }
