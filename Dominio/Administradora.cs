@@ -25,12 +25,6 @@ namespace Dominio
         private List<Cliente> clientes;
         private List<Compra> compras;
 
-        public List<Producto> Productos
-        {
-            get { return productos; }
-
-        }
-
         private Administradora()
         {
             productos = new List<Producto>();
@@ -103,9 +97,20 @@ namespace Dominio
             compras.Add(cm5);
             compras.Add(cm6);
             #endregion
-        } 
+        }
         #endregion
 
+        public List<Producto> Productos
+        {
+            get { return productos; }
+
+        }
+
+        public List<Cliente> Clientes
+        {
+            get { return clientes; }
+
+        }
         public void AgregarProducto(Producto p)
         {
             productos.Add(p);

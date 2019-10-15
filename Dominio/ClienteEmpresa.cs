@@ -41,7 +41,11 @@ namespace Dominio
             }
 
             return des;
-        } 
+        }
 
+        public override string ToString()
+        {
+            return base.ToString() + string.Format(" Rut:{0}", Rut);
+        }
     }
 }

@@ -25,14 +25,14 @@ namespace Programa
                 Console.WriteLine("5 - Salir");
                 Console.WriteLine("-----------------------------------------------");
 
-                opc = PedirNumero("Ingrese una opcion entre 1 y 5", "El valor debe ser numérico y estar entre 1 y 5", 1, 5);
+                opc = PedirNumero("Ingrese una opcion entre ", "El valor debe ser numérico y estar entre ", 1, 5);
                 switch (opc)
                 {
                     case 1:
                         MostrarProductos();
                         break;
                     case 2:
-                        Console.WriteLine("2");
+                        ListarClientes();
                         break;
                     case 3:
                         Console.WriteLine("3");
@@ -65,6 +65,20 @@ namespace Programa
 
             } while (!exito);
             return opc;
+        }
+
+        public static DateTime PedirFecha(string msg, string msgError)
+        {
+            DateTime fecha;
+            bool exito = false;
+            do{
+                Console.WriteLine(msg);
+                string sFecha = Console.ReadLine();
+                exito = DateTime.TryParseExact(sFecha,"dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out fecha);
+                if(!exito)
+                    Console.WriteLine(msgError);
+            } while (!exito);
+            return fecha;
         }
 
         public static void MostrarProductos()
@@ -108,5 +122,21 @@ namespace Programa
 
         }
 
+        public static void ListarClientes()
+        {
+            int cont = 0;
+            DateTime fecha = PedirFecha("Ingrese la fecha", "La fecha debe obedecer un formato de dd/MM/aaaa");
+            foreach (Cliente c in Administradora.Instancia.Clientes)
+            {
+                if (c.Fecha < fecha)
+                {
+                    Console.WriteLine(c);
+                    cont++;
+                }
+            }
+            if (cont == 0)
+                Console.WriteLine("No hay clientes registrado antes de la fecha: " + fecha);
+            Console.ReadLine();
+        }
     }
 }

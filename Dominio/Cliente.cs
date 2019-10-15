@@ -102,8 +102,12 @@ namespace Dominio
         public static bool DireccionValida(string direccion)
         {
             return direccion.Length > 0;
-        } 
+        }
         #endregion
 
+        public override string ToString()
+        {
+            return string.Format("Fecha:{0} Nombre:{1} Email:{2}",Fecha, Nombre,Email);
+        }
     }
 }

@@ -55,8 +55,13 @@ namespace Dominio
             if (this.Antiguedad() >= 2)
                 des += 0.05;//Esto lo tiene que decir el profesoraso
             return des;
-        } 
+        }
         #endregion
+
+        public override string ToString()
+        {
+            return base.ToString() + string.Format(" Cédula:{0}",Cedula);
+        }
 
     }
 }
