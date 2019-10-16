@@ -60,7 +60,7 @@ namespace Dominio
 
         public override string ToString()
         {
-            return string.Format("{0}, fecha: {1} - Total productos: {2}", Cliente.Nombre, fecha, CantidadProductos());
+            return string.Format("{0}, fecha: {1} - Total productos: {2}", Cliente.Nombre, fecha.ToShortDateString(), CantidadProductos());
         } 
         #endregion
     }
