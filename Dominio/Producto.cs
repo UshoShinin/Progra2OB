@@ -25,7 +25,7 @@ namespace Dominio
         private EnumCategoria categoria;
         private double precio;
 
-        public static int contadorId = 1;
+        private static int contadorId = 1;
 
         public Producto(string nombre, string descripcion, bool exclusivo, EnumCategoria categoria, double precio)
         {

@@ -51,7 +51,7 @@ namespace Dominio
             clientes = new List<Cliente>();
             compras = new List<Compra>();
 
-            #region Productos  
+            #region Productos
             Producto p1 = new Producto("Leche", "Leche de vaca, entera y pasteurizada", false, Producto.EnumCategoria.FRESCOS, 29);
             Producto p2 = new Producto("Papas fritas", "1Kg de papas fritas congeladas", true, Producto.EnumCategoria.CONGELADOS, 150);
             Producto p3 = new Producto("Camisa a cuadros", "Camisa roja y negra a cuadros, talle M", true, Producto.EnumCategoria.TEXTILES, 650);
@@ -133,7 +133,18 @@ namespace Dominio
             #endregion
         }
         #endregion
-        
+
+        public List<Producto> Productos
+        {
+            get { return productos; }
+
+        }
+
+        public List<Cliente> Clientes
+        {
+            get { return clientes; }
+
+        }
         public void AgregarProducto(Producto p)
         {
             productos.Add(p);

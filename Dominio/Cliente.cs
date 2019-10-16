@@ -113,7 +113,7 @@ namespace Dominio
 
         public override string ToString()
         {
-            return string.Format("Fecha:{0} Nombre:{1} Email:{2}",Fecha.ToShortDateString(), Nombre,Email);
+            return string.Format("Fecha:{0} Nombre:{1} Email:{2}",Fecha, Nombre,Email);
         }
     }
 }

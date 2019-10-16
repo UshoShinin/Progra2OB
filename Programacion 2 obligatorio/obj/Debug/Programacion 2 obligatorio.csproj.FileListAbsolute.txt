@@ -28,13 +28,3 @@ C:\Users\Usho\source\repos\Proyecto progra\Progra2OB\Programacion 2 obligatorio\
 C:\Users\Usho\source\repos\Proyecto progra\Progra2OB\Programacion 2 obligatorio\obj\Debug\Programacion 2 obligatorio.csproj.CopyComplete
 C:\Users\Usho\source\repos\Proyecto progra\Progra2OB\Programacion 2 obligatorio\obj\Debug\Programa.exe
 C:\Users\Usho\source\repos\Proyecto progra\Progra2OB\Programacion 2 obligatorio\obj\Debug\Programa.pdb
-C:\Users\alumnoFI\source\repos\Pogra\Progra2OB\Programacion 2 obligatorio\bin\Debug\Programa.exe.config
-C:\Users\alumnoFI\source\repos\Pogra\Progra2OB\Programacion 2 obligatorio\bin\Debug\Programa.exe
-C:\Users\alumnoFI\source\repos\Pogra\Progra2OB\Programacion 2 obligatorio\bin\Debug\Programa.pdb
-C:\Users\alumnoFI\source\repos\Pogra\Progra2OB\Programacion 2 obligatorio\bin\Debug\Dominio.dll
-C:\Users\alumnoFI\source\repos\Pogra\Progra2OB\Programacion 2 obligatorio\bin\Debug\Dominio.pdb
-C:\Users\alumnoFI\source\repos\Pogra\Progra2OB\Programacion 2 obligatorio\obj\Debug\Programacion 2 obligatorio.csprojAssemblyReference.cache
-C:\Users\alumnoFI\source\repos\Pogra\Progra2OB\Programacion 2 obligatorio\obj\Debug\Programacion 2 obligatorio.csproj.CoreCompileInputs.cache
-C:\Users\alumnoFI\source\repos\Pogra\Progra2OB\Programacion 2 obligatorio\obj\Debug\Programacion 2 obligatorio.csproj.CopyComplete
-C:\Users\alumnoFI\source\repos\Pogra\Progra2OB\Programacion 2 obligatorio\obj\Debug\Programa.exe
-C:\Users\alumnoFI\source\repos\Pogra\Progra2OB\Programacion 2 obligatorio\obj\Debug\Programa.pdb
