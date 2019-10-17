@@ -35,6 +35,7 @@ namespace Dominio
         public override double calcularPorcentaje()
         {
             double des = 0;
+            //Todo pa tu body
             if (this.Procedencia == EnumProcedencia.INTERIOR)
             {
                 des += 0.05;

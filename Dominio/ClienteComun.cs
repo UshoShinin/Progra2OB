@@ -11,6 +11,7 @@ namespace Dominio
         
         private int cedula;
         private int celular;
+        private static double descuentaso = 0.05;
 
         public ClienteComun(List<Compra> compras, string nombre, string contraseña, string email, DateTime fecha, EnumProcedencia procedencia, string direccion, string nombreDeUsuario, int cedula, int celular) :
         base(compras, nombre, contraseña, email, fecha, procedencia, direccion, nombreDeUsuario)
@@ -53,7 +54,7 @@ namespace Dominio
                 des += 0.05;
             }
             if (this.Antiguedad() >= 2)
-                des += 0.05;//Esto lo tiene que decir el profesoraso
+                des += descuentaso;
             return des;
         }
         #endregion

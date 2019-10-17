@@ -40,6 +40,7 @@ namespace Dominio
         #endregion
 
         #region Methods
+        //Se calcula el valor bruto de todos los productos dentro de la lista de compra.
         public double SubTotal()
         {
             double total = 0;
@@ -49,12 +50,12 @@ namespace Dominio
             }
             return total;
         }
-
+        //Suma las cantidades de cada producto en la lista de compras para tener una cantidad de productos totales.
         public int CantidadProductos()
         {
             int contador = 0;
             foreach (CantidadProducto cp in productos)
-                contador += cp.Cantidad;
+                contador += cp.Cantidad;            
             return contador;
         }
 
