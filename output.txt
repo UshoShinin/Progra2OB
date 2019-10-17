@@ -1,0 +1,701 @@
+﻿***********************************
+Filename: Administradora.cs
+***********************************
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Dominio
+{
+    public class Administradora
+    {
+        #region Singleton
+        private static Administradora instancia;
+
+        public static Administradora Instancia
+        {
+            get
+            {
+                if (instancia == null)
+                    instancia = new Administradora();
+                return instancia;
+            }
+        }
+
+        private List<Producto> productos;
+        private List<Cliente> clientes;
+        private List<Compra> compras;
+
+        #region Properties
+        public List<Producto> Productos
+        {
+            get { return productos; }
+            set { productos = value; }
+        }
+
+        public List<Cliente> Clientes
+        {
+            get { return clientes; }
+            set { clientes = value; }
+        }
+
+        public List<Compra> Compras
+        {
+            get { return compras; }
+            set { compras = value; }
+        } 
+        #endregion
+
+        private Administradora()
+        {
+            productos = new List<Producto>();
+            clientes = new List<Cliente>();
+            compras = new List<Compra>();
+
+            #region Productos  
+            Producto p1 = new Producto("Leche", "Leche de vaca, entera y pasteurizada", false, Producto.EnumCategoria.FRESCOS, 29);
+            Producto p2 = new Producto("Papas fritas", "1Kg de papas fritas congeladas", true, Producto.EnumCategoria.CONGELADOS, 150);
+            Producto p3 = new Producto("Camisa a cuadros", "Camisa roja y negra a cuadros, talle M", true, Producto.EnumCategoria.TEXTILES, 650);
+            Producto p4 = new Producto("Microondas", "Microondas digital Panavox de acero inoxidable", false, Producto.EnumCategoria.HOGAR, 4200);
+            Producto p5 = new Producto("Smart TV 40\"", "Smart TV Samsung 40\" Full HD", false, Producto.EnumCategoria.TECNOLOGIA, 14000);
+
+            productos.Add(p1);
+            productos.Add(p2);
+            productos.Add(p3);
+            productos.Add(p4);
+            productos.Add(p5);
+            #endregion
+
+            #region Clientes
+            List<Compra> comprasRealizadas = new List<Compra>();
+            DateTime fechaRegistro1 = new DateTime(2014, 8, 17);
+            DateTime fechaRegistro2 = new DateTime(2016, 2, 22);
+            DateTime fechaRegistro3 = new DateTime(2018, 12, 27);
+            DateTime fechaRegistro4 = new DateTime(2011, 3, 12);
+            DateTime fechaRegistro5 = new DateTime(2015, 11, 24);
+            DateTime fechaRegistro6 = new DateTime(2013, 5, 30);
+
+            ClienteComun cc1 = new ClienteComun(comprasRealizadas, "Alejandro Britos", "AlejandroBritos1209", "AlejandroBritos@gmail.com", fechaRegistro1, Cliente.EnumProcedencia.INTERIOR, "Treinta y Tres 512", "AleBritos", 43245438, 98074334);
+            ClienteComun cc2 = new ClienteComun(comprasRealizadas, "Manuel Bertinat", "ManuelBertinat2901", "ManuelBertinat@gmail.com", fechaRegistro2, Cliente.EnumProcedencia.MONTEVIDEO, "Jose L. Terra 2372 apto 4", "Manu55", 50787620, 99346534);
+            ClienteComun cc3 = new ClienteComun(comprasRealizadas, "Guillermo Rodriguez", "GuillermoRodriguez1806", "GuillermoRodriguez@gmail.com", fechaRegistro3, Cliente.EnumProcedencia.INTERIOR, "18 de Julio 2204", "GuilleElMasCapito", 52432343, 96578757);
+            ClienteEmpresa ce1 = new ClienteEmpresa(comprasRealizadas, "ADNexus", "GenexusIsTrash", "NicholasJodon@ADNexus.com.uy", fechaRegistro4, Cliente.EnumProcedencia.MONTEVIDEO, "No tienen sede física lol", "ADNexus is Love", "ADNexus Es Mejor SRL", 213546823908, 0.05);
+            ClienteEmpresa ce2 = new ClienteEmpresa(comprasRealizadas, "MacroRough", "$250porUnaLicenciaEsUnPrecioJusto", "FacturaPuertas@MacroRough.com", fechaRegistro5, Cliente.EnumProcedencia.MONTEVIDEO, "El mundo lol", "WeHateLinux", "MacroRough Corporation", 222876233645, 0.10);
+            ClienteEmpresa ce3 = new ClienteEmpresa(comprasRealizadas, "Sinaprole", "Conaprole", "Leche@vaca.muu.uy", fechaRegistro6, Cliente.EnumProcedencia.INTERIOR, "Por todo Uruguay", "Via Sinaprole", "Cooperativa Sinaprole", 153324541981, 0.8);
+
+            clientes.Add(cc1);
+            clientes.Add(cc2);
+            clientes.Add(cc3);
+            clientes.Add(ce1);
+            clientes.Add(ce2);
+            clientes.Add(ce3);  
+            #endregion
+
+            #region Compras
+            DateTime fechaCompra1 = new DateTime(2016, 8, 17);
+            DateTime fechaCompra2 = new DateTime(2017, 11, 17);
+            DateTime fechaCompra3 = new DateTime(2018, 4, 14);
+            DateTime fechaCompra4 = new DateTime(2019, 3, 12);
+            DateTime fechaCompra5 = new DateTime(2019, 4, 13);
+            DateTime fechaCompra6 = new DateTime(2012, 1, 31);
+
+            CantidadProducto cp1 = new CantidadProducto(3, p1);
+            CantidadProducto cp2 = new CantidadProducto(5, p2);
+            CantidadProducto cp3 = new CantidadProducto(1, p3);
+            CantidadProducto cp4 = new CantidadProducto(2, p4);
+            CantidadProducto cp5 = new CantidadProducto(50, p5);
+
+            List<CantidadProducto> listaP1 = new List<CantidadProducto> { cp1, cp3, cp4 };
+            List<CantidadProducto> listaP2 = new List<CantidadProducto> { cp1, cp2, cp3, cp4, cp5 };
+            List<CantidadProducto> listaP3 = new List<CantidadProducto> { cp1, cp3 };
+            List<CantidadProducto> listaP4 = new List<CantidadProducto> { cp1, cp2, cp3 };
+            List<CantidadProducto> listaP5 = new List<CantidadProducto> { cp1, cp2 };
+            List<CantidadProducto> listaP6 = new List<CantidadProducto> { cp1, cp2, cp3, cp4 };
+
+            Compra cm1 = new Compra(listaP1, cc1, fechaCompra1, Compra.EnumFormaPago.TARJETA, Compra.EnumTipoEntrega.RETIROLOCAL);
+            Compra cm2 = new Compra(listaP2, ce2, fechaCompra2, Compra.EnumFormaPago.TARJETA, Compra.EnumTipoEntrega.DOMICILIO);
+            Compra cm3 = new Compra(listaP3, cc1, fechaCompra3, Compra.EnumFormaPago.EFECTIVO, Compra.EnumTipoEntrega.RETIROLOCAL);
+            Compra cm4 = new Compra(listaP4, cc3, fechaCompra4, Compra.EnumFormaPago.EFECTIVO, Compra.EnumTipoEntrega.DOMICILIO);
+            Compra cm5 = new Compra(listaP5, cc3, fechaCompra5, Compra.EnumFormaPago.EFECTIVO, Compra.EnumTipoEntrega.RETIROLOCAL);
+            Compra cm6 = new Compra(listaP6, ce1, fechaCompra6, Compra.EnumFormaPago.TARJETA, Compra.EnumTipoEntrega.DOMICILIO);
+
+            compras.Add(cm1);
+            compras.Add(cm2);
+            compras.Add(cm3);
+            compras.Add(cm4);
+            compras.Add(cm5);
+            compras.Add(cm6);
+
+            clientes.ElementAt(0).Compras.Add(cm1);
+            clientes.ElementAt(4).Compras.Add(cm2);
+            clientes.ElementAt(0).Compras.Add(cm3);
+            clientes.ElementAt(2).Compras.Add(cm4);
+            clientes.ElementAt(2).Compras.Add(cm5);
+            clientes.ElementAt(3).Compras.Add(cm6);
+            #endregion
+        }
+        #endregion
+        
+        public void AgregarProducto(Producto p)
+        {
+            productos.Add(p);
+        }
+
+        public void AgregarCliente(Cliente c)
+        {
+            clientes.Add(c);
+        }
+
+        public void AgregarCompra(Compra cm)
+        {
+            compras.Add(cm);
+        }
+
+    }
+}
+
+***********************************
+Filename: CantidadProducto.cs
+***********************************
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Dominio
+{
+    public class CantidadProducto
+    {
+        private int cantidad;
+        private Producto producto;
+
+        public CantidadProducto(int cantidad, Producto producto)
+        {
+            this.cantidad = cantidad;
+            this.producto = producto;
+        }
+
+        #region Properties
+        public int Cantidad
+        {
+            get { return cantidad; }
+            set { cantidad = value; }
+        }
+
+        public Producto Producto
+        {
+            get { return producto; }
+            set { producto = value; }
+        }
+        #endregion
+
+    }
+}
+
+***********************************
+Filename: Cliente.cs
+***********************************
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Dominio
+{
+    public abstract class Cliente
+    {
+        #region EnumDeclaration
+        public enum EnumProcedencia
+        {
+            MONTEVIDEO = 1,
+            INTERIOR
+        }
+        #endregion
+
+        private List<Compra> compras;
+        private string nombre;
+        private string contraseña;
+        private string email;
+        private DateTime fecha;
+        private EnumProcedencia procedencia;
+        private string direccion;
+        private string nombreDeUsuario;
+        protected static double descuentazo = 0.05;
+
+        protected Cliente(List<Compra> compras, string nombre, string contraseña, string email, DateTime fecha, EnumProcedencia procedencia, string direccion, string nombreDeUsuario)
+        {
+            this.compras = compras;
+            this.nombre = nombre;
+            this.contraseña = contraseña;
+            this.email = email;
+            this.fecha = fecha;
+            this.procedencia = procedencia;
+            this.direccion = direccion;
+            this.nombreDeUsuario = nombreDeUsuario;
+        }
+
+        #region Properties
+        public List<Compra> Compras
+        {
+            get { return compras; }
+            set { compras = value; }
+        }
+
+        public string Nombre
+        {
+            get { return nombre; }
+            set { nombre = value; }
+        }
+        public string Contraseña
+        {
+            get { return contraseña; }
+            set { contraseña = value; }
+        }
+        public string Email
+        {
+            get { return email; }
+            set { email = value; }
+        }
+        public DateTime Fecha
+        {
+            get { return fecha; }
+        }
+        public EnumProcedencia Procedencia
+        {
+            get { return procedencia; }
+            set { procedencia = value; }
+        }
+        public string Direccion
+        {
+            get { return direccion; }
+            set { direccion = value; }
+        }
+        public string NombreDeUsuario
+        {
+            get { return nombreDeUsuario; }
+            set { nombreDeUsuario = value; }
+        }
+        #endregion
+
+        #region Methods
+        //Metodo abstracto preparado para que hereden los hijos de la clase
+        public abstract double calcularPorcentaje();
+
+        public static bool NombreValido(string nombre)
+        {
+            return nombre.Length > 0;
+        }
+
+        public static bool ContraseñaValida(string contraseña)
+        {
+            return contraseña.Length > 0;
+        }
+        public double Antiguedad()
+        {
+            TimeSpan a = DateTime.Now - this.fecha;
+            return a.Days / 365.25;
+        }
+        public static bool EmailValido(string email)
+        {
+            return email.Length > 0;
+        }
+        public static bool NUsuarioValido(string NUsuario)
+        {
+            return NUsuario.Length > 0;
+        }
+        public static bool DireccionValida(string direccion)
+        {
+            return direccion.Length > 0;
+        }
+        #endregion
+
+        public override string ToString()
+        {
+            return string.Format("Fecha:{0} Nombre:{1} Email:{2}",Fecha.ToShortDateString(), Nombre,Email);
+        }
+    }
+}
+
+***********************************
+Filename: ClienteComun.cs
+***********************************
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Dominio
+{
+    public class ClienteComun : Cliente
+    {
+        
+        private int cedula;
+        private int celular;        
+
+        public ClienteComun(List<Compra> compras, string nombre, string contraseña, string email, DateTime fecha, EnumProcedencia procedencia, string direccion, string nombreDeUsuario, int cedula, int celular) :
+        base(compras, nombre, contraseña, email, fecha, procedencia, direccion, nombreDeUsuario)
+        {
+            this.cedula = cedula;
+            this.celular = celular;
+        }
+
+        #region Properties
+        public int Cedula
+        {
+            get { return cedula; }
+            set { cedula = value; }
+        }
+
+
+        public int Celular
+        {
+            get { return celular; }
+            set { celular = value; }
+        }
+        #endregion
+
+        #region Methods
+        public static bool CedulaValida(int cedula)
+        {
+            return cedula > 999999;
+        }
+
+        public static bool CalularValido(int celular)
+        {
+            return celular > 99999999 && celular < 999999999;
+        }
+
+        public override double calcularPorcentaje()
+        {
+            double des = 0;
+            if (this.Procedencia == EnumProcedencia.INTERIOR)
+            {
+                des += 0.05;
+            }
+            if (this.Antiguedad() >= 2)
+                des += descuentazo;
+            return des;
+        }
+        #endregion
+
+        public override string ToString()
+        {
+            return base.ToString() + string.Format(" Cédula:{0}",Cedula);
+        }
+
+    }
+}
+
+***********************************
+Filename: ClienteEmpresa.cs
+***********************************
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Dominio
+{
+    public class ClienteEmpresa : Cliente
+    {
+        private string razonSocial;
+        private long rut;
+        private double descuento;
+
+        public ClienteEmpresa(List<Compra> compras, string nombre, string contraseña, string email, DateTime fecha, EnumProcedencia procedencia, string direccion, string nombreDeUsuario, string razonSocial, long rut, double descuento):
+        base(compras, nombre, contraseña, email, fecha, procedencia, direccion, nombreDeUsuario)
+        {
+            this.razonSocial = razonSocial;
+            this.rut = rut;
+            this.descuento = descuento;
+        }
+
+        #region Properties
+        public string RazonSocial
+        {
+            get { return razonSocial; }
+            set { razonSocial = value; }
+        }
+
+        public long Rut
+        {
+            get { return rut; }
+            set { rut = value; }
+        }
+
+        public double Descuento
+        {
+            get { return descuento; }
+            set { descuento = value; }
+        }
+        #endregion
+
+        public override double calcularPorcentaje()
+        {
+            double des = descuento;
+
+            if (this.Antiguedad() >= 2)
+            {
+                des += descuentazo;
+                if (this.Antiguedad() >= 5)
+                    des += descuento; 
+            }
+            return des;
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + string.Format(" Rut:{0}", Rut);
+        }
+    }
+}
+
+***********************************
+Filename: Compra.cs
+***********************************
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Dominio
+{
+    public class Compra
+    {
+
+        #region EnumDeclaration
+        public enum EnumFormaPago
+        {
+            TARJETA = 1,
+            EFECTIVO
+        } 
+
+        public enum EnumTipoEntrega
+        {
+            RETIROLOCAL  = 1,
+            DOMICILIO
+        }
+        #endregion
+
+        private List<CantidadProducto> productos;
+        private Cliente cliente;
+        private DateTime fecha;
+        private EnumFormaPago formaDePago;
+        private EnumTipoEntrega tipoEntrega;        
+
+        public Compra(List<CantidadProducto> productos, Cliente cliente, DateTime fecha, EnumFormaPago formaDePago, EnumTipoEntrega tipoEntrega)
+        {
+            this.productos = productos;
+            this.cliente = cliente;
+            this.fecha = fecha;
+            this.formaDePago = formaDePago;
+            this.tipoEntrega = tipoEntrega;
+        }
+
+        #region Properties
+        public List<CantidadProducto> Productos
+        {
+            get { return productos; }
+            set { productos = value; }
+        }
+
+        public Cliente Cliente
+        {
+            get { return cliente; }
+            set { cliente = value; }
+        }
+
+        public DateTime Fecha
+        {
+            get { return fecha; }
+            set { fecha = value; }
+        }
+
+        public EnumFormaPago FormaDePago
+        {
+            get { return formaDePago; }
+            set { formaDePago = value; }
+        }
+
+        public EnumTipoEntrega TipoEntrega
+        {
+            get { return tipoEntrega; }
+            set { tipoEntrega = value; }
+        }
+        #endregion
+
+        #region Methods
+        //Se calcula el valor bruto de todos los productos dentro de la lista de compra.
+        public double SubTotal()
+        {
+            double subtotal = 0;
+            foreach (CantidadProducto P in Productos)
+            {
+                if (P.Producto.Exclusivo && P.Cantidad >= 2)
+                {
+                    subtotal += P.Producto.Precio * (P.Cantidad - 1);
+                } else
+                {
+                    subtotal += P.Producto.Precio * P.Cantidad;
+                }               
+            }
+            return subtotal;
+        }
+
+        //A partir del subtotal se aplican descuentos y gastos de envío 
+        public double Total()
+        {
+            double total = SubTotal();
+            double descuento = 0;
+            if (total >= 5000)
+                descuento += 0.04;
+            descuento += cliente.calcularPorcentaje();
+            total -= total * descuento;
+            if (cliente.Procedencia == Cliente.EnumProcedencia.INTERIOR && tipoEntrega == EnumTipoEntrega.DOMICILIO)
+                total += 1000; //Te fajamos con el envío
+            return total;
+        }
+
+        //Suma las cantidades de cada producto en la lista de compras para tener una cantidad de productos totales.
+        public int CantidadProductos()
+        {
+            int contador = 0;
+            foreach (CantidadProducto cp in productos)
+                contador += cp.Cantidad;            
+            return contador;
+        }
+
+        public override string ToString()
+        {
+            return string.Format("{0}, fecha: {1} - Total productos: {2}", Cliente.Nombre, fecha.ToShortDateString(), CantidadProductos());
+        } 
+        #endregion
+    }
+}
+
+***********************************
+Filename: Producto.cs
+***********************************
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Dominio
+{
+    public class Producto
+    {
+        #region EnumDeclaration
+        public enum EnumCategoria {
+            FRESCOS = 1,
+            CONGELADOS,
+            HOGAR,
+            TEXTILES,
+            TECNOLOGIA
+        }
+        #endregion
+        
+        private int id;
+        private string nombre;
+        private string descripcion;
+        private bool exclusivo;
+        private EnumCategoria categoria;
+        private double precio;
+
+        public static int contadorId = 1;
+
+        public Producto(string nombre, string descripcion, bool exclusivo, EnumCategoria categoria, double precio)
+        {
+            this.id = contadorId;
+            this.nombre = nombre;
+            this.descripcion = descripcion;
+            this.exclusivo = exclusivo;
+            this.categoria = categoria;
+            this.precio = precio;
+            contadorId++;
+        }
+
+        #region  Properties
+        public int ID
+        {
+            get { return id; }
+            set { id = value; }
+        }
+        
+        public string Nombre
+        {
+            get { return nombre; }
+            set { nombre = value; }
+        }
+
+        public string Descripcion
+        {
+            get { return descripcion; }
+            set { descripcion = value; }
+        }
+
+        public bool Exclusivo
+        {
+            get { return exclusivo; }
+            set { exclusivo = value; }
+        }
+
+        public EnumCategoria Categoria
+        {
+            get { return categoria; }
+            set { categoria = value; }
+        }
+
+        public double Precio
+        {
+            get { return precio; }
+            set { precio = value; }
+        }
+        #endregion
+
+        #region Methods
+        public static bool NombreValido(string nombre)
+        {
+            return nombre.Length > 0;
+        }
+        public static bool DescripcionValida(string descripcion)
+        {
+            return descripcion.Length > 0;
+        }
+        public static bool PrecioValido(double precio)
+        {
+            return precio > 0;
+        }
+        public override string ToString()
+        {
+            return string.Format("Id:{0}, Nombre:{1},  Descripción:{2}, Precio:${3}",id,nombre,descripcion,precio);
+        }
+        #endregion
+    }
+}
+
+***********************************
+Filename: Class1.cs
+***********************************
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Dominio;
+
+namespace Programacion_2_obligatorio
+{
+    public class Class1
+    {
+       
+    }
+    
+}

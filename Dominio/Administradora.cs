@@ -86,7 +86,7 @@ namespace Dominio
             clientes.Add(cc3);
             clientes.Add(ce1);
             clientes.Add(ce2);
-            clientes.Add(ce3);
+            clientes.Add(ce3);  
             #endregion
 
             #region Compras
@@ -110,12 +110,12 @@ namespace Dominio
             List<CantidadProducto> listaP5 = new List<CantidadProducto> { cp1, cp2 };
             List<CantidadProducto> listaP6 = new List<CantidadProducto> { cp1, cp2, cp3, cp4 };
 
-            Compra cm1 = new Compra(listaP1, cc1, fechaCompra1, Compra.EnumFormaPago.TARJETA);
-            Compra cm2 = new Compra(listaP2, ce2, fechaCompra2, Compra.EnumFormaPago.TARJETA);
-            Compra cm3 = new Compra(listaP3, cc1, fechaCompra3, Compra.EnumFormaPago.EFECTIVO);
-            Compra cm4 = new Compra(listaP4, cc3, fechaCompra4, Compra.EnumFormaPago.EFECTIVO);
-            Compra cm5 = new Compra(listaP5, cc3, fechaCompra5, Compra.EnumFormaPago.EFECTIVO);
-            Compra cm6 = new Compra(listaP6, ce1, fechaCompra6, Compra.EnumFormaPago.TARJETA);
+            Compra cm1 = new Compra(listaP1, cc1, fechaCompra1, Compra.EnumFormaPago.TARJETA, Compra.EnumTipoEntrega.RETIROLOCAL);
+            Compra cm2 = new Compra(listaP2, ce2, fechaCompra2, Compra.EnumFormaPago.TARJETA, Compra.EnumTipoEntrega.DOMICILIO);
+            Compra cm3 = new Compra(listaP3, cc1, fechaCompra3, Compra.EnumFormaPago.EFECTIVO, Compra.EnumTipoEntrega.RETIROLOCAL);
+            Compra cm4 = new Compra(listaP4, cc3, fechaCompra4, Compra.EnumFormaPago.EFECTIVO, Compra.EnumTipoEntrega.DOMICILIO);
+            Compra cm5 = new Compra(listaP5, cc3, fechaCompra5, Compra.EnumFormaPago.EFECTIVO, Compra.EnumTipoEntrega.RETIROLOCAL);
+            Compra cm6 = new Compra(listaP6, ce1, fechaCompra6, Compra.EnumFormaPago.TARJETA, Compra.EnumTipoEntrega.DOMICILIO);
 
             compras.Add(cm1);
             compras.Add(cm2);

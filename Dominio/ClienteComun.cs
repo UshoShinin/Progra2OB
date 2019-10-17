@@ -45,7 +45,7 @@ namespace Dominio
             return celular > 99999999 && celular < 999999999;
         }
 
-        public override double calcularPorcentaje(double subtotal)
+        public override double calcularPorcentaje()
         {
             double des = 0;
             if (this.Procedencia == EnumProcedencia.INTERIOR)
@@ -54,8 +54,6 @@ namespace Dominio
             }
             if (this.Antiguedad() >= 2)
                 des += descuentazo;
-            if (subtotal >= 5000)
-                des += 0.04;
             return des;
         }
         #endregion

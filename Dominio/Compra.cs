@@ -15,20 +15,27 @@ namespace Dominio
             TARJETA = 1,
             EFECTIVO
         } 
+
+        public enum EnumTipoEntrega
+        {
+            RETIROLOCAL  = 1,
+            DOMICILIO
+        }
         #endregion
 
         private List<CantidadProducto> productos;
         private Cliente cliente;
         private DateTime fecha;
-        private EnumFormaPago formaDePago;                    
+        private EnumFormaPago formaDePago;
+        private EnumTipoEntrega tipoEntrega;        
 
-        public Compra(List<CantidadProducto> productos, Cliente cliente, DateTime fecha, EnumFormaPago formaDePago)
+        public Compra(List<CantidadProducto> productos, Cliente cliente, DateTime fecha, EnumFormaPago formaDePago, EnumTipoEntrega tipoEntrega)
         {
             this.productos = productos;
             this.cliente = cliente;
             this.fecha = fecha;
             this.formaDePago = formaDePago;
-
+            this.tipoEntrega = tipoEntrega;
         }
 
         #region Properties
@@ -55,6 +62,12 @@ namespace Dominio
             get { return formaDePago; }
             set { formaDePago = value; }
         }
+
+        public EnumTipoEntrega TipoEntrega
+        {
+            get { return tipoEntrega; }
+            set { tipoEntrega = value; }
+        }
         #endregion
 
         #region Methods
@@ -64,7 +77,7 @@ namespace Dominio
             double subtotal = 0;
             foreach (CantidadProducto P in Productos)
             {
-                if (P.Producto.Exclusivo)
+                if (P.Producto.Exclusivo && P.Cantidad >= 2)
                 {
                     subtotal += P.Producto.Precio * (P.Cantidad - 1);
                 } else
@@ -78,10 +91,14 @@ namespace Dominio
         //A partir del subtotal se aplican descuentos y gastos de envío 
         public double Total()
         {
-            double total = SubTotal();            
-            total -= total * cliente.calcularPorcentaje(total);
-            if (cliente.Procedencia == Cliente.EnumProcedencia.INTERIOR)
-                total += 1000;
+            double total = SubTotal();
+            double descuento = 0;
+            if (total >= 5000)
+                descuento += 0.04;
+            descuento += cliente.calcularPorcentaje();
+            total -= total * descuento;
+            if (cliente.Procedencia == Cliente.EnumProcedencia.INTERIOR && tipoEntrega == EnumTipoEntrega.DOMICILIO)
+                total += 1000; //Te fajamos con el envío
             return total;
         }
 

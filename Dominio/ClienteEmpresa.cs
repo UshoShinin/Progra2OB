@@ -12,8 +12,6 @@ namespace Dominio
         private long rut;
         private double descuento;
 
-
-
         public ClienteEmpresa(List<Compra> compras, string nombre, string contraseña, string email, DateTime fecha, EnumProcedencia procedencia, string direccion, string nombreDeUsuario, string razonSocial, long rut, double descuento):
         base(compras, nombre, contraseña, email, fecha, procedencia, direccion, nombreDeUsuario)
         {
@@ -42,7 +40,7 @@ namespace Dominio
         }
         #endregion
 
-        public override double calcularPorcentaje(double subtotal)
+        public override double calcularPorcentaje()
         {
             double des = descuento;
 
@@ -52,8 +50,6 @@ namespace Dominio
                 if (this.Antiguedad() >= 5)
                     des += descuento; 
             }
-            if (subtotal >= 5000)
-                des += 0.04;
             return des;
         }
 
