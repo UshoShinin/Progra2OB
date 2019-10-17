@@ -81,6 +81,7 @@ namespace Dominio
         #endregion
 
         #region Methods
+        //Metodo abstracto preparado para que hereden los hijos de la clase
         public abstract double calcularPorcentaje();
 
         public static bool NombreValido(string nombre)
