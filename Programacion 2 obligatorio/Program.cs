@@ -18,7 +18,7 @@ namespace Programa
                 Console.WriteLine("-----------------------------------------------");
                 Console.WriteLine("                     Menu");
                 Console.WriteLine("1 - Listado de productos por categoria");
-                Console.WriteLine("2 - Clientes registrados a partir de una fecha");
+                Console.WriteLine("2 - Clientes registrados antes de una fecha");
                 Console.WriteLine("3 - Compras realizadas entre dos fechas");
                 Console.WriteLine("4 - Alta de producto");
                 Console.WriteLine("5 - Salir");
@@ -149,11 +149,10 @@ namespace Programa
             foreach (Cliente c in Administradora.Instancia.Clientes)
             {
 
-                if (c.Fecha >= fecha)
+                if (c.Fecha < fecha)
                 {
 
                     Console.WriteLine(c);
-
                     cont++;
 
                 }
