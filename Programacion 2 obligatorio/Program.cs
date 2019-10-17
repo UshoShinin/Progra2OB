@@ -54,6 +54,7 @@ namespace Programa
             }
 
         }
+
         //Este metodo recibe como parametros un mensaje y un mensaje de error en caso que el valor no sea válido,un mínimo y un máximom, este método retorna un número entre el mínimo y el máximo válido
         public static int PedirNumero(string msg, string msgError, int min, int max)
         {
@@ -75,6 +76,7 @@ namespace Programa
             } while (!exito);
             return opc;
         }
+
         //Este metodo recibe como parametros un mensaje y un mensaje de error en caso que la fecha no sea válida, este método retorna uan fecha válida
         public static DateTime PedirFecha(string msg, string msgError)
         {
@@ -90,6 +92,7 @@ namespace Programa
             } while (!exito);
             return fecha;
         }
+
         //Despliega un menu con todos los tipos de producto para elegir y muestra los productos que cumplan con el filtro.
         public static void MostrarProductos()
         {
@@ -137,6 +140,7 @@ namespace Programa
             Console.ReadLine();
 
         }
+
         //Este método pide una fecha y lista los clientes que se registraron antes de esa fecha.
         public static void ListarClientes(){
             Console.Clear();
@@ -152,6 +156,7 @@ namespace Programa
                 Console.WriteLine("No hay clientes registrado después de la fecha: " + fecha.ToShortDateString());
             Console.ReadLine();
         }
+
         //Este método, pide 2 fechas, y muestra las compras realizdas, entre esas 2 fechas. Si las fechas están invertidas, el método las invierte.
         public static void ComprasEntreFechas(){
             Console.Clear();

@@ -10,8 +10,7 @@ namespace Dominio
     {
         
         private int cedula;
-        private int celular;
-        private static double descuentaso = 0.05;
+        private int celular;        
 
         public ClienteComun(List<Compra> compras, string nombre, string contraseña, string email, DateTime fecha, EnumProcedencia procedencia, string direccion, string nombreDeUsuario, int cedula, int celular) :
         base(compras, nombre, contraseña, email, fecha, procedencia, direccion, nombreDeUsuario)
@@ -46,7 +45,7 @@ namespace Dominio
             return celular > 99999999 && celular < 999999999;
         }
 
-        public override double calcularPorcentaje()
+        public override double calcularPorcentaje(double subtotal)
         {
             double des = 0;
             if (this.Procedencia == EnumProcedencia.INTERIOR)
@@ -54,7 +53,9 @@ namespace Dominio
                 des += 0.05;
             }
             if (this.Antiguedad() >= 2)
-                des += descuentaso;
+                des += descuentazo;
+            if (subtotal >= 5000)
+                des += 0.04;
             return des;
         }
         #endregion

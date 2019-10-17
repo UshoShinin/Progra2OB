@@ -24,6 +24,7 @@ namespace Dominio
         private EnumProcedencia procedencia;
         private string direccion;
         private string nombreDeUsuario;
+        protected static double descuentazo = 0.05;
 
         protected Cliente(List<Compra> compras, string nombre, string contraseña, string email, DateTime fecha, EnumProcedencia procedencia, string direccion, string nombreDeUsuario)
         {
@@ -82,7 +83,7 @@ namespace Dominio
 
         #region Methods
         //Metodo abstracto preparado para que hereden los hijos de la clase
-        public abstract double calcularPorcentaje();
+        public abstract double calcularPorcentaje(double subtotal);
 
         public static bool NombreValido(string nombre)
         {

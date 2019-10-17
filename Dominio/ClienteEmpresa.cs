@@ -10,12 +10,16 @@ namespace Dominio
     {
         private string razonSocial;
         private long rut;
+        private double descuento;
 
-        public ClienteEmpresa(List<Compra> compras, string nombre, string contraseña, string email, DateTime fecha, EnumProcedencia procedencia, string direccion, string nombreDeUsuario, string razonSocial, long rut):
+
+
+        public ClienteEmpresa(List<Compra> compras, string nombre, string contraseña, string email, DateTime fecha, EnumProcedencia procedencia, string direccion, string nombreDeUsuario, string razonSocial, long rut, double descuento):
         base(compras, nombre, contraseña, email, fecha, procedencia, direccion, nombreDeUsuario)
         {
             this.razonSocial = razonSocial;
             this.rut = rut;
+            this.descuento = descuento;
         }
 
         #region Properties
@@ -30,17 +34,26 @@ namespace Dominio
             get { return rut; }
             set { rut = value; }
         }
+
+        public double Descuento
+        {
+            get { return descuento; }
+            set { descuento = value; }
+        }
         #endregion
 
-        public override double calcularPorcentaje()
+        public override double calcularPorcentaje(double subtotal)
         {
-            double des = 0;
-            //Todo pa tu body
-            if (this.Procedencia == EnumProcedencia.INTERIOR)
-            {
-                des += 0.05;
-            }
+            double des = descuento;
 
+            if (this.Antiguedad() >= 2)
+            {
+                des += descuentazo;
+                if (this.Antiguedad() >= 5)
+                    des += descuento; 
+            }
+            if (subtotal >= 5000)
+                des += 0.04;
             return des;
         }
 
